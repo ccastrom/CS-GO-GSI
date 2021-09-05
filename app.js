@@ -1,8 +1,9 @@
 http = require('http');
 fs = require('fs');
-
+const provider= require('./provider');
 port = 3000;
 host = '127.0.0.1';
+
 
 server = http.createServer( function(req, res) {
 
@@ -17,12 +18,13 @@ server = http.createServer( function(req, res) {
            
         });
         req.on('end', function () {
-            console.log(body);
+            //console.log(body);
             var datos=JSON.parse(body);
-
-              
+            provider.provider(datos);
+           
         	res.end( '' );
         });
+      
     }
     else
     {
