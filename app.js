@@ -1,6 +1,7 @@
 http = require('http');
 fs = require('fs');
 const provider= require('./provider');
+const player_id=require('./player_id');
 port = 3000;
 host = '127.0.0.1';
 
@@ -20,7 +21,8 @@ server = http.createServer( function(req, res) {
         req.on('end', function () {
             //console.log(body);
             var datos=JSON.parse(body);
-            provider.provider(datos);
+            var idReal=provider.provider(datos);
+            player_id.player_id(datos,idReal);
            
         	res.end( '' );
         });
