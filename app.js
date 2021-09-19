@@ -4,6 +4,7 @@ const provider= require('./provider');
 const player_status=require('./player_status');
 const map=require('./map');
 const round=require('./round');
+const player_weapons=require('./player_weapons');
 port = 3000;
 host = '127.0.0.1';
 
@@ -28,6 +29,7 @@ server = http.createServer( function(req, res) {
             var playerStatus= player_status.player_status(datos,idReal);
             map.map(datos,playerStatus);
             round.round(datos,playerStatus);
+            player_weapons.player_weapons(datos,playerStatus);
            
         	res.end( '' );
         });

@@ -3,7 +3,7 @@ function round(JSON,player_status){
         var phase=JSON.round.phase;
         var win_team=JSON.round.win_team;
         var bomb=JSON.round.bomb;
-        if(!bomb ){
+        if(!bomb){
             console.log("Bomba no plantada"); 
         }else{
             console.log("Estado de la bomba: "+bomb); 
