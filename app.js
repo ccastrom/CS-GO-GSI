@@ -3,6 +3,7 @@ fs = require('fs');
 const provider= require('./provider');
 const player_status=require('./player_status');
 const map=require('./map');
+const round=require('./round');
 port = 3000;
 host = '127.0.0.1';
 
@@ -20,11 +21,13 @@ server = http.createServer( function(req, res) {
            
         });
         req.on('end', function () {
+           
             //console.log(body);
             var datos=JSON.parse(body);
             var idReal=provider.provider(datos);
             var playerStatus= player_status.player_status(datos,idReal);
             map.map(datos,playerStatus);
+            round.round(datos,playerStatus);
            
         	res.end( '' );
         });
