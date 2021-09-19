@@ -1,9 +1,9 @@
 
-
-function player_id(JSON,id){
+function player_status(JSON,id){
     
     var matchid=JSON.player.steamid;
     var activity=JSON.player.activity;
+    
    
 
     if(activity=="playing"){
@@ -22,6 +22,7 @@ function player_id(JSON,id){
         
         console.log("======="+activity+"=======");
     }
+    return activity;
   
     
  
@@ -32,4 +33,4 @@ function player_id(JSON,id){
 
 
 }
-module.exports.player_id=player_id;
+module.exports.player_status=player_status;
