@@ -14,6 +14,7 @@
         <input type="submit" name="btnEnviar" value="enviar">
        
     </form>
+    <h4 id="arma"></h4>
     <?php
         session_start();
             if(isset($_SESSION["nombre"])){
@@ -25,4 +26,5 @@
 
         ?>
 </body>
+<script src="player_weapons.js"></script>
 </html>

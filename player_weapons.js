@@ -1,5 +1,7 @@
+const express=require('express'); 
+const app=express();
+const router=express.Router();
 function player_weapons(JSON,activity){
-
    
    if(activity=="playing"){
     try {
@@ -36,11 +38,10 @@ function player_weapons(JSON,activity){
         }
         console.log("Rifle: "+arma_2);
     }
-  
-   }
     
   
-  
-  
+   }
 }
+router.get('/')
+
 module.exports.player_weapons=player_weapons;
