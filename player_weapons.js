@@ -42,6 +42,6 @@ function player_weapons(JSON,activity){
   
    }
 }
-router.get('/')
+
 
 module.exports.player_weapons=player_weapons;
