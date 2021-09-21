@@ -8,10 +8,15 @@ const map = require('./map');
 const round = require('./round');
 const player_weapons = require('./player_weapons');
 const render = require('./render');
+const jsonPersonal=require('./myjson');
 port = 3000;
 host = '127.0.0.1';
 let idReal;
-let playerStatus;
+let vPlayerStatus;
+let vMap;
+let vRound;
+let vWeapons;
+let cadenaJSON;
 
 
 
@@ -31,11 +36,19 @@ server = http.createServer(function (req, res) {
             //console.log(body);
             var datos = JSON.parse(body);
             idReal = provider.provider(datos);
-            playerStatus = player_status.player_status(datos, idReal);
-            map.map(datos, playerStatus);
-            round.round(datos, playerStatus);
-            player_weapons.player_weapons(datos, playerStatus);
-            render.render(idReal);
+            vPlayerStatus = player_status.player_status(datos, idReal);
+            vMap=map.map(datos, vPlayerStatus);
+            vRound=round.round(datos, vPlayerStatus);
+            vWeapons=player_weapons.player_weapons(datos, vPlayerStatus,idReal);
+
+            cadenaJSON=jsonPersonal.jsonPersonal(idReal,vPlayerStatus,vMap,vRound,vWeapons);
+
+            
+           
+            
+           
+           
+            render.render(cadenaJSON);
             res.end('');
            
            

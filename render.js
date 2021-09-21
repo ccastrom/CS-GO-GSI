@@ -6,13 +6,17 @@ port=3000;
 
 
 // Motor de plantilla
-function render(id){
-console.log("id es: "+id);
+function render(cadenaJSON){
+
+  
+
+  
+
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
 app.get("/", (req, res) => {
-    res.render("index", { titulo: id });
+    res.render("index", { titulo: cadenaJSON.Usuario.Nombre });
   });
   
   app.get("/nosotros", (req, res) => {
