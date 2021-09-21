@@ -26,5 +26,5 @@
 
         ?>
 </body>
-<script src="player_weapons.js"></script>
+<script src="render.js"></script>
 </html>
