@@ -1,16 +1,15 @@
 http = require('http');
-const express = require('express');
-const app = express();
-const fs = require('fs');
+var app = require('express')();
+var express = require('http').Server(app);
+var io = require('socket.io')(express);
 const provider = require('./provider');
 const player_status = require('./player_status');
 const map = require('./map');
 const round = require('./round');
 const player_weapons = require('./player_weapons');
-const render = require('./render');
 const jsonPersonal=require('./myjson');
-port = 3000;
-host = '127.0.0.1';
+portCSGO = 3000;
+webport=2626;
 let idReal;
 let vPlayerStatus;
 let vMap;
@@ -18,10 +17,28 @@ let vRound;
 let vWeapons;
 let cadenaJSON;
 
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
+
+
+app.get("/", (req, res) => {
+    res.render("index");
+  });
 
 
 
-server = http.createServer(function (req, res) {
+  io.on('connection', (socket) => {
+    console.log('a user connected');
+  });
+express.listen(webport, function() {
+    console.log('ir a localhost:'+webport+' para ir a la página');
+});
+
+
+ server = http.createServer(function (req, res) {
+   
+    
+
     if (req.method == 'POST') {
         console.log("Handling POST request...");
         res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -40,15 +57,8 @@ server = http.createServer(function (req, res) {
             vMap=map.map(datos, vPlayerStatus);
             vRound=round.round(datos, vPlayerStatus);
             vWeapons=player_weapons.player_weapons(datos, vPlayerStatus,idReal);
-
             cadenaJSON=jsonPersonal.jsonPersonal(idReal,vPlayerStatus,vMap,vRound,vWeapons);
-
-            
-           
-            
-           
-           
-            render.render(cadenaJSON);
+            actualizar(cadenaJSON);
             res.end('');
            
            
@@ -59,36 +69,20 @@ server = http.createServer(function (req, res) {
 
 
 
-    } else {
-       
-        fs.readFile('views/index.ejs' + req.url, function (err,data) {
-            if (err) {
-              res.writeHead(404);
-              res.end(JSON.stringify(err));
-
-              return;
-
-            }
-          
+    } else {  
             res.writeHead(200, { 'Content-Type': 'text/html' });
-          
-            res.end(data);
-          });
-        
-        // console.log("Not expecting other request types...");
-        // res.writeHead(200, { 'Content-Type': 'text/html' });
-        // var html = '<html><body>HTTP Server at http://' + host + ':' + port + ':' + playerStatus + '</body></html>';
-        // res.end(html);
-    }
+            var html="Puerto de cs go GSI: "+portCSGO;
+            res.end(html);
+          }
+    });
+function actualizar(cadena){
+    io.emit("update",cadena);
+
+}
 
 
 
 
 
-
-});
-
-
-
-server.listen(port, host);
-console.log('Listening at http://' + host + ':' + port);
+server.listen(portCSGO);
+console.log('Listening at http://' +portCSGO);

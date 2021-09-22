@@ -9,27 +9,27 @@ function jsonPersonal(idReal,vPlayerStatus,vMap,vRound,vWeapons){
             "Estado":vPlayerStatus[3]
         },
         "Mapa":{
-            "Tipo de partida":vMap[0],
-            "Nombre de mapa":vMap[1],
-            "Fase actual:":vMap[2],
-            "Ronda actual":vMap[3],
-            "Puntuacion CT":vMap[4],
-            "Rondas perdidas consecutivas CT":vMap[5],
-            "Puntuacion T":vMap[6],
-            "Rondas perdidas consecutivas T":vMap[7]
+            "TipoDePartida":vMap[0],
+            "NombreDeMapa":vMap[1],
+            "FaseActual":vMap[2],
+            "RondaActual":vMap[3],
+            "PuntuacionCT":vMap[4],
+            "RondasPerdidasConsecutivasCT":vMap[5],
+            "PuntuacionT":vMap[6],
+            "RondasPerdidasConsecutivasT":vMap[7]
 
         },
         "Ronda":{
-            "Estado de bomba":vRound[0],
-            "Equipo Ganador":vRound[1],
-            "Fase actual":vRound[2]
+            "EstadoDeBomba":vRound[0],
+            "EquipoGanador":vRound[1],
+            "FaseActual":vRound[2]
         },
         "Armas":{
-            "Arma Equipada":vWeapons[0],
-            "Munición restante arma 1":vWeapons[1],
-            "Arma 1":vWeapons[2],
-            "Arma 2":vWeapons[3],
-            "Arma 3":vWeapons[4]
+            "ArmaEquipada":vWeapons[0],
+            "MunicionRestanteArma1":vWeapons[1],
+            "Arma1":vWeapons[2],
+            "Arma2":vWeapons[3],
+            "Arma3":vWeapons[4]
             
 
         }

@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>Hola <%= titulo %></h1>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    
+  <h1 id="activity"></h1>
+  <h2 id="dato">Probando</h2>
+  <h3 id="ammo"></h3>
+  <script>
+    var io = io();
+    io.on("update", function(status) {
+      document.getElementById("activity").innerHTML=status.Estado.Actividad;
+      document.getElementById("dato").innerHTML=status.Armas.ArmaEquipada;
+      document.getElementById("ammo").innerHTML=status.Armas.MunicionRestanteArma1;
+      
+ 
+
+});
+
+  </script>
 </body>
 </html>
