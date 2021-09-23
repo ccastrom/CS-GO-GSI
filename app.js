@@ -21,9 +21,6 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
 
-app.get("/", (req, res) => {
-    res.render("index");
-  });
 
 
 
@@ -35,6 +32,7 @@ express.listen(webport, function() {
 });
 
 
+
  server = http.createServer(function (req, res) {
    
     
@@ -42,6 +40,7 @@ express.listen(webport, function() {
     if (req.method == 'POST') {
         console.log("Handling POST request...");
         res.writeHead(200, { 'Content-Type': 'text/html' });
+        
 
         var body = '';
         req.on('data', function (data) {
@@ -58,7 +57,8 @@ express.listen(webport, function() {
             vRound=round.round(datos, vPlayerStatus);
             vWeapons=player_weapons.player_weapons(datos, vPlayerStatus,idReal);
             cadenaJSON=jsonPersonal.jsonPersonal(idReal,vPlayerStatus,vMap,vRound,vWeapons);
-            actualizar(cadenaJSON);
+            datoDinamico(cadenaJSON);
+            datoEstatico(cadenaJSON);
             res.end('');
            
            
@@ -70,15 +70,23 @@ express.listen(webport, function() {
 
 
     } else {  
+            console.log("Not expecting other request types...");
             res.writeHead(200, { 'Content-Type': 'text/html' });
             var html="Puerto de cs go GSI: "+portCSGO;
             res.end(html);
           }
     });
-function actualizar(cadena){
+function datoDinamico(cadena){
     io.emit("update",cadena);
 
 }
+
+function datoEstatico(cadena){
+    app.get("/", (req, res) => {
+        res.render("index",{"idPlayer":cadena.Usuario.ID});
+      });
+}
+
 
 
 

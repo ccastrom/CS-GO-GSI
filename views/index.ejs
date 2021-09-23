@@ -11,16 +11,46 @@
   <h1 id="activity"></h1>
   <h2 id="dato">Probando</h2>
   <h3 id="ammo"></h3>
+  <h3 id=""><%= idPlayer %></h3>
+
+  <table border="1">
+    <tr>
+      <th>Mapa</th>
+      <th>Tipo de Partida</th>
+      <th>Ronda Actual</th>
+      <th>Puntuacion CT</th>
+      <th>Puntuacion T</th>
+      
+    </tr>
+    
+    <tr>
+      <td id="nombreMapa"></td>
+      <td id="tipoPartida"></td>
+      <td id="RondaActual"></td>
+      <td id="puntosCT"></td>
+      <td id="puntosT"></td>
+     
+    </tr>
+   
+   
+  </table>
+
   <script>
     var io = io();
     io.on("update", function(status) {
       document.getElementById("activity").innerHTML=status.Estado.Actividad;
       document.getElementById("dato").innerHTML=status.Armas.ArmaEquipada;
-      document.getElementById("ammo").innerHTML=status.Armas.MunicionRestanteArma1;
-      
- 
+      document.getElementById("ammo").innerHTML="Balas: "+status.Armas.MunicionRestanteArma1;
 
+      document.getElementById("tipoPartida").innerHTML=status.Mapa.TipoDePartida;
+      document.getElementById("nombreMapa").innerHTML=status.Mapa.NombreDeMapa;
+      document.getElementById("RondaActual").innerHTML=status.Mapa.RondaActual;
+
+      document.getElementById("puntosCT").innerHTML=status.Mapa.PuntuacionCT;
+      document.getElementById("puntosT").innerHTML=status.Mapa.PuntuacionT;
+      
 });
+
 
   </script>
 </body>
