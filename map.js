@@ -1,9 +1,15 @@
-function map(JSON,gamestatus){
+function map(JSON){
     let vMap=[];
+    var mapname;
+    try{
+        mapname=JSON.map.name;
 
-    if(gamestatus[0]=="playing"){
+    }catch(error){
+        console.log("Fin de la partida");
+    }
+   
+    if(mapname){
         var mapmode;
-        var mapname;
         var phase;
         var round;
         var teamctScore;
@@ -11,7 +17,7 @@ function map(JSON,gamestatus){
         var teamTScore;
         var tconsecutiveroundlosses;
          mapmode=JSON.map.mode;//0
-         mapname=JSON.map.name;//1
+       //1
          phase=JSON.map.phase;//2
          round=JSON.map.round;//3
         console.log("Nombre de mapa: "+mapname);
@@ -35,7 +41,8 @@ function map(JSON,gamestatus){
         return vMap;
       
     }else{
-       
+        
+      
         
         vMap.push("","","","","","","","");
         return vMap;

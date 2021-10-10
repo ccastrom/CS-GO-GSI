@@ -1,5 +1,5 @@
 
-function player_weapons(JSON,activity,userID){
+function player_weapons(JSON,map,userID){
     var matchid=JSON.player.steamid;
     let vWeapons=[];
     var knife;
@@ -12,7 +12,7 @@ function player_weapons(JSON,activity,userID){
     var arma_2_ammo;
     var arma_actual;
    
-   if(activity[0]=="playing" && userID==matchid){
+   if(map && userID==matchid){
     try {
         knife= JSON.player.weapons.weapon_0.name;
          knife_state=JSON.player.weapons.weapon_0.state;

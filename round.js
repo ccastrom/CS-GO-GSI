@@ -1,8 +1,8 @@
-function round(JSON,player_status){
+function round(JSON,map){
      var vRound=[];
      var ganador_disputa;
      var bomba_no_plantada;
-    if(player_status[0]=="playing"){
+    if(map){
         var pphase;
         var win_team;
         var bomb;
@@ -34,6 +34,7 @@ function round(JSON,player_status){
       
       
     }else{
+       
         bomb="";
         win_team="";
         phase="";

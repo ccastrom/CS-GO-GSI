@@ -1,5 +1,5 @@
 
-function player_id(JSON,id){
+function player_id(JSON,id,map){
     
     var matchid=JSON.player.steamid;
     var activity=JSON.player.activity;
@@ -12,7 +12,7 @@ function player_id(JSON,id){
     
    
 
-    if(activity=="playing"){
+    if(map){
         console.log("====PARTIDA EN CURSO====");//Si activity es igual a "playing" existe una partida en curso
         if(id==matchid){
             console.log("====JUGADOR VIVO====");//Si el ID base es igual al id actual de la partida, significa que el jugador esta vivo
@@ -34,7 +34,7 @@ function player_id(JSON,id){
     }else{
        
         vStatus.push("","","");
-        console.log("======="+activity+"=======");
+        console.log("!!!!======="+activity+"=======!!!!!");
         return vStatus;
         
         
