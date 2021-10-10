@@ -1,5 +1,5 @@
 
-function player_status(JSON,id){
+function player_id(JSON,id){
     
     var matchid=JSON.player.steamid;
     var activity=JSON.player.activity;
@@ -41,4 +41,4 @@ function player_status(JSON,id){
     }
     return vStatus;
 }
-module.exports.player_status=player_status;
+module.exports.player_id=player_id;

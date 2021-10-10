@@ -3,7 +3,7 @@ var app = require('express')();
 var express = require('http').Server(app);
 var io = require('socket.io')(express);
 const provider = require('./provider');
-const player_status = require('./player_status');
+const player_id = require('./player_id');
 const map = require('./map');
 const round = require('./round');
 const player_weapons = require('./player_weapons');
@@ -52,7 +52,7 @@ express.listen(webport, function() {
             //console.log(body);
             var datos = JSON.parse(body);
             idReal = provider.provider(datos);
-            vPlayerStatus = player_status.player_status(datos, idReal);
+            vPlayerStatus = player_id.player_id(datos, idReal);
             vMap=map.map(datos, vPlayerStatus);
             vRound=round.round(datos, vPlayerStatus);
             vWeapons=player_weapons.player_weapons(datos, vPlayerStatus,idReal);

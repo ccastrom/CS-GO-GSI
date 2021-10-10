@@ -3,7 +3,7 @@ function round(JSON,player_status){
      var ganador_disputa;
      var bomba_no_plantada;
     if(player_status[0]=="playing"){
-        var phase;
+        var pphase;
         var win_team;
         var bomb;
          phase=JSON.round.phase;
