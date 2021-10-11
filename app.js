@@ -8,6 +8,7 @@ const map = require('./map');
 const round = require('./round');
 const player_weapons = require('./player_weapons');
 const player_state= require('./player_state');
+const player_match_stats=require('./player_match_stats');
 const jsonPersonal=require('./myjson');
 portCSGO = 3000;
 webport=2626;
@@ -17,6 +18,7 @@ let vMap;
 let vRound;
 let vWeapons;
 let vPlayer_state;
+let vPlayer_match_stats;
 let cadenaJSON;
 
 app.set("view engine", "ejs");
@@ -51,7 +53,7 @@ express.listen(webport, function() {
 
         });
         req.on('end', function () {
-            //console.log(body);
+            console.log(body);
             var datos = JSON.parse(body);
              idReal = provider.provider(datos);
              vMap=map.map(datos);
@@ -59,9 +61,10 @@ express.listen(webport, function() {
              vRound=round.round(datos, vMap[1]);
              vWeapons=player_weapons.player_weapons(datos, vMap[1],idReal);
              vPlayer_state=player_state.player_state(datos,vMap[1],idReal);
-             cadenaJSON=jsonPersonal.jsonPersonal(idReal,vPlayerId,vMap,vRound,vWeapons,vPlayer_state);
-            //  datoDinamico(cadenaJSON);
-            // datoEstatico(cadenaJSON);
+             vPlayer_match_stats=player_match_stats.player_match_stats(datos,vMap[1],idReal);
+             cadenaJSON=jsonPersonal.jsonPersonal(idReal,vPlayerId,vMap,vRound,vWeapons,vPlayer_state,vPlayer_match_stats);
+             datoDinamico(cadenaJSON);
+             datoEstatico(cadenaJSON);
             res.end('');
            
            
