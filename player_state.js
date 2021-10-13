@@ -29,7 +29,7 @@ function player_state(JSON,map,userID){
         equip_value=JSON.player.state.equip_value;
         vPlayer_state.push(health,armor,helmet,defusekit,flashed,smoked,burning,money,round_kills
         ,round_killhs,equip_value);
-        console.log(health);
+       
 
         return vPlayer_state;
             

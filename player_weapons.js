@@ -27,9 +27,9 @@ function player_weapons(JSON,map,userID){
       
     }
     if(knife){
-        console.log(knife);
+        //console.log(knife);
         if(knife_state=="active"){
-            console.log("★★Arma equipada★★: "+knife);
+            //console.log("★★Arma equipada★★: "+knife);
             arma_actual=knife;
             vWeapons.push(arma_actual,knife_state);
         
@@ -37,24 +37,24 @@ function player_weapons(JSON,map,userID){
     }
     if(arma_1){
         if(arma_1_state=="active"){
-            console.log("★★Arma equipada★★: "+arma_1);
+            //console.log("★★Arma equipada★★: "+arma_1);
             arma_1_ammo=JSON.player.weapons.weapon_1.ammo_clip;
-            console.log("Munición restante: "+arma_1_ammo);
+            //console.log("Munición restante: "+arma_1_ammo);
             arma_actual=arma_1;
             vWeapons.push(arma_actual,arma_1_ammo);
         }
-        console.log("Arma corta: "+arma_1);
+        //console.log("Arma corta: "+arma_1);
     }
     if(arma_2){
         if(arma2_state=="active"){
-            console.log("★★Arma equipada★★: "+arma_2);
+            //console.log("★★Arma equipada★★: "+arma_2);
             arma_2_ammo=JSON.player.weapons.weapon_2.ammo_clip;
-            console.log("Munición restante: "+arma_2_ammo);
+            //console.log("Munición restante: "+arma_2_ammo);
 
             arma_actual=arma_2;
             vWeapons.push(arma_actual,arma_2_ammo);
         }
-        console.log("Rifle: "+arma_2);
+        //console.log("Rifle: "+arma_2);
     }
     vWeapons.push(knife,arma_1,arma_2);
    

@@ -9,6 +9,7 @@ function player_match_stats(JSON,map,idPlayer){
     var score;
    
     var vPlayer_match_stats=[];
+    var vPlayer_match_stats_pasado=[];
 
     var matchid=JSON.player.steamid;
 
@@ -19,9 +20,29 @@ function player_match_stats(JSON,map,idPlayer){
         mvps=JSON.player.match_stats.mvps;
         score=JSON.player.match_stats.score;
         vPlayer_match_stats.push(kills,assists,deaths,mvps,score);
+        console.log(kills);
+        console.log(assists);
+        console.log(deaths);
+
         return vPlayer_match_stats;
 
-    }else {
+    }else if(map && JSON.previously && JSON.previously.player.steamid==idPlayer) {
+        
+            kills=JSON.previously.player.match_stats.kills;
+            assists=JSON.previously.player.match_stats.assists;
+            deaths=JSON.previously.player.match_stats.deaths;
+            mvps=JSON.previously.player.match_stats.mvps;
+            score=JSON.previously.player.match_stats.score;
+            vPlayer_match_stats.push(kills,assists,deaths,mvps,score);
+            console.log("Datos en pasado: "+kills);
+            console.log("Datos en pasado: "+assists);
+            console.log("Datos en pasado: "+deaths);
+           return vPlayer_match_stats;
+            ;
+
+      
+       
+    }else{
         vPlayer_match_stats.push("","","","","");
         return vPlayer_match_stats;
     }

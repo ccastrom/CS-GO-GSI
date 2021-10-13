@@ -13,20 +13,20 @@ function player_id(JSON,id,map){
    
 
     if(map){
-        console.log("====PARTIDA EN CURSO====");//Si activity es igual a "playing" existe una partida en curso
+        // console.log("====PARTIDA EN CURSO====");
         if(id==matchid){
-            console.log("====JUGADOR VIVO====");//Si el ID base es igual al id actual de la partida, significa que el jugador esta vivo
+            // console.log("====JUGADOR VIVO====");
              team=JSON.player.team
              name=JSON.player.name;
              status="Vivo"
-            console.log("Equipo actual: "+team);
-            console.log(name);
-            console.log(status);
-            vStatus.push(team,name,status);
+            // console.log("Equipo actual: "+team);
+            // console.log(name);
+            // console.log(status);
+            // vStatus.push(team,name,status);
         }else{
             
             team=JSON.player.team;
-            console.log("Jugador muerto");
+            // console.log("Jugador muerto");
             status="Muerto";
             vStatus.push(team,"",status);
         }
@@ -34,7 +34,7 @@ function player_id(JSON,id,map){
     }else{
        
         vStatus.push("","","");
-        console.log("!!!!======="+activity+"=======!!!!!");
+        // console.log("!!!!======="+activity+"=======!!!!!");
         return vStatus;
         
         

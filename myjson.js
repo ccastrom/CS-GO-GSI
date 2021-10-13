@@ -1,4 +1,5 @@
 function jsonPersonal(idReal,vPlayer_id,vMap,vRound,vWeapons,vPlayer_state,vPlayer_match_stats){
+    var asd;
     let cadenaJSON={"Usuario":{
         "ID":idReal,
         "Nombre":vPlayer_id[2]
@@ -46,6 +47,7 @@ function jsonPersonal(idReal,vPlayer_id,vMap,vRound,vWeapons,vPlayer_state,vPlay
             "round_killsHS":vPlayer_state[9],
             "equip_value":vPlayer_state[10],
         },
+      
         "StatsPlayer":{
             "kills":vPlayer_match_stats[0],
             "assists":vPlayer_match_stats[1],
