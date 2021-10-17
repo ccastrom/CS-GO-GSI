@@ -37,8 +37,8 @@ express.listen(webport, function() {
     console.log('ir a localhost:'+webport+' para ir a la página');
 });
 
-app.get('/', (req, res) => {
-   res.send("PRINCIPAL PAGE");
+app.get('/hud2', (req, res) => {
+   res.render("hud2");
   });
 
 

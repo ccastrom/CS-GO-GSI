@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
+<body class=".bg-primary.bg-gradient">
+  
   <h1 id="activity"></h1>
   <h2 id="dato"></h2>
   <h3 id="ammo"></h3>
@@ -37,7 +40,10 @@
 
   <script>
     var io = io();
+   
     io.on("update", function(status) {
+     
+    
       document.getElementById("activity").innerHTML=status.player_id.Actividad;
       document.getElementById("dato").innerHTML="Arma equipada: "+status.Armas.ArmaEquipada;
       document.getElementById("ammo").innerHTML="Balas: "+status.Armas.MunicionRestanteArma1;
@@ -48,10 +54,67 @@
 
       document.getElementById("puntosCT").innerHTML=status.Mapa.PuntuacionCT;
       document.getElementById("puntosT").innerHTML=status.Mapa.PuntuacionT;
+
+      
       
 });
 
 
+
+
+
   </script>
+
+<canvas id="myChart" style=" height:10vh; width:100vw"></canvas>
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [ 'Blue'],
+        datasets: [{
+            label: 'Stats',
+            data: [0],
+            backgroundColor: [
+               
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+               
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+io.on("update", function(status) {
+    var kills= status.StatsPlayer.kills;
+        myChart.data.datasets[0].data[0] = kills
+  
+        myChart.update();
+
+
+});
+
+
+</script>
+
+
 </body>
 </html>
