@@ -1,5 +1,6 @@
 function jsonPersonal(idReal,vPlayer_id,vMap,vRound,vWeapons,vPlayer_state,vPlayer_match_stats){
     var asd;
+   
     let cadenaJSON={"Usuario":{
         "ID":idReal,
         "Nombre":vPlayer_id[2]
@@ -28,9 +29,10 @@ function jsonPersonal(idReal,vPlayer_id,vMap,vRound,vWeapons,vPlayer_state,vPlay
         "Armas":{
             "ArmaEquipada":vWeapons[0],
             "MunicionRestanteArma1":vWeapons[1],
-            "Arma1":vWeapons[2],
-            "Arma2":vWeapons[3],
-            "Arma3":vWeapons[4]
+            "Estado":vWeapons[2],
+            "Arma1":vWeapons[3],
+            "Arma2":vWeapons[4],
+            "Arma3":vWeapons[5]
             
 
         },

@@ -18,17 +18,22 @@ function player_id(JSON,id,map){
             // console.log("====JUGADOR VIVO====");
              team=JSON.player.team
              name=JSON.player.name;
+          
              status="Vivo"
             // console.log("Equipo actual: "+team);
             // console.log(name);
             // console.log(status);
-            // vStatus.push(team,name,status);
+             vStatus.push(team,name,status);
+             return vStatus;
+            
         }else{
             
             team=JSON.player.team;
             // console.log("Jugador muerto");
             status="Muerto";
-            vStatus.push(team,"",status);
+            vStatus.push(team,name,status);
+            return vStatus;
+           
         }
        
     }else{

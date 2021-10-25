@@ -34,9 +34,7 @@ function player_match_stats(JSON,map,idPlayer){
             mvps=JSON.previously.player.match_stats.mvps;
             score=JSON.previously.player.match_stats.score;
             vPlayer_match_stats.push(kills,assists,deaths,mvps,score);
-            console.log("Datos en pasado: "+kills);
-            console.log("Datos en pasado: "+assists);
-            console.log("Datos en pasado: "+deaths);
+           
            return vPlayer_match_stats;
             ;
 
