@@ -8,85 +8,93 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="/socket.io/socket.io.js"></script>
       <link href="style.css" rel="stylesheet" type="text/css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body >
    
     <div class=" container-fluid" >
         <div class="row " >
-            <div class="col-12 d-flex justify-content-center">
-                <h1 class="mt-5" id="nombreMapa">MapName</h1>
+            <div class=" title col-12 d-flex justify-content-center">
+                <img class="rounded mt-3" width="90px" height="70px"  id="imagenMapa"></img>
+                <h2 class="pt-2 mt-3 d-flex justify-content-center" id="nombreMapa"></h2>
+                
+               
             </div>
         </div>
-        <div class="card col-md-10 mt-5 mx-auto"  style="background-color: #495057; ">
+        <div class=" shadow-lg card col-md-10 mt-4 mb-3 mx-auto "  style="background-color: #495057; ">
             <div class="row col-md-11 mt-5 mx-auto " >
-                <div class="col-2 border" >
+                <div class="col-2 border border-3  border-secondary rounded" >
                     <h5 class="pt-2 d-flex justify-content-center"  id="tipoPartida">Tipo de Partida</h5>
                 </div>
-                <div class="col-10 border" >
+                <div class="col-10 border border-3  border-secondary rounded" >
                  <h5 class="pt-2 "  id="UserName">Nombre</h5>
              </div>
              </div>
              <div class="row  col-md-11  mx-auto " >
-                 <div class="col-6 border" >
-                     <h5 class="pt-2 d-flex justify-content-center " id="puntosCT">CT</h5>
+                 <div class="col-6 border border-3  border-secondary rounded" >
+                     <div class="col-1 mt-5 mx-auto">
+                        <img src="https://i.imgur.com/KD6CB5b.png" width="80px" height="80px"><img>
+                     </div>
+                     <h5 class=" d-flex justify-content-center rounded" id="puntosCT">Puntuación CT:1</h5>
                  </div>
-                 <div class="col-6 border" >
-                  <h5 class="pt-2 d-flex justify-content-center" id="puntosT">T</h5>
+                 <div class="col-6 border border-3  border-secondary rounded" >
+                    <div class="col-1 mt-5 mx-auto">
+                        <img src="https://steamuserimages-a.akamaihd.net/ugc/858353301730910634/8F630A0B1E5E2026D347894A877E1386D148F478/" width="80px" height="80px"><img>
+                     </div>
+                  <h5 class=" d-flex justify-content-center" id="puntosT">Puntuación T:0</h5>
               </div>
               </div>
-              <div class="row  col-md-11  mx-auto " >
-                 <div class="col-12 border" >
-                     <h5 class="pt-5 mb-5 d-flex justify-content-center" id="RondaActual">Ronda Actual</h5>
+              <div class="row  col-md-11  mx-auto  " >
+                 <div class="col-12 border border-3  border-secondary rounded" >
+                     <h5 class="pt-2 mb-4 d-flex justify-content-center" id="RondaActual">Ronda Actual</h5>
                      <div class="col-2 mx-auto" >
-                         <h5 class=" d-flex justify-content-center border">00:00</h5>
+                         <h5 class=" d-flex justify-content-center border border-3  border-secondary" id="fase">Fase actual:</h5>
                          
                      </div>
                  </div>  
               </div>
      
               <div class="row pt-4  col-md-11  mx-auto  ">
-                 <div class="col-12 border">
+                 <div class="col-12 border border-3  border-secondary rounded">
   
                      <h5 class="pt-2 d-flex justify-content-center " id="arma1">Arma 1</h5>
-                     <img class="rounded mx-auto d-block" id="gun_img" width="230px" height="100px"></img>
-                     <div class="col-2 mx-auto" >
-                        <h5 class=" d-flex justify-content-center border" id="ammo">Ammo</h5>
+                     <img class="rounded mx-auto d-block" id="gun_img" width="130px" height="48px"></img>
+                     <div class="col-2 mx-auto "  >
+                        <h5 class=" d-flex justify-content-center border border-3  border-secondary rounded" id="ammo">Ammo</h5>
                         
                     </div>
                  </div>
                 
               </div>
-              <div class="row col-md-11 mb-4  mx-auto border  ">
-                 <div class="col-12" >
-                     <h5 class="pt-2 d-flex justify-content-center">Gagdet</h5>
+              <div class="row col-md-11 mb-4  mx-auto border border-3  border-secondary rounded  ">
+                 <div class="col-12 " >
+                     <h5 class="pt-2 d-flex justify-content-center ">-</h5>
                  </div>
                 
               </div>
 
         </div>
- 
 
-         <div class="row pt-4  col-md-11  mx-auto  ">
-            <div class=" col-4 d-flex justify-content-center   ">
-                <canvas id="myChart" style=" height:120px; width:180px"></canvas>
-             
-            </div>
-              <div class=" col-4 d-flex justify-content-center   ">
-              <h1>test2</h1>
-            </div> 
-            <div class=" col-4  d-flex justify-content-center  ">
-                <h1>test3</h1>
-              </div>  
-              </div>
-            
-             
-         </div>
-
-         
-        
        
+        <div class=" shadow-lg card col-md-11 mx-auto  " style="background-color: #495057;">
+            <div class="row pt-3  col-md-11  mx-auto pb-4  " >
+                <div class=" col-md-4 d-flex  justify-content-center   ">
+                    <canvas id="myChart" style="height: 100px; width: 190px;"></canvas>
+                 
+                </div>
+                <div class=" col-md-4 d-flex justify-content-center   ">
+                    <canvas id="myChart2" style="height: 100px; width: 190px;"></canvas>
+                  </div> 
+                  <div class=" col-md-4  d-flex justify-content-center  ">
+                    <h1>adsa</h1>
+                  </div>  
+                  </div>
 
+
+        </div>
          
     </div>
 

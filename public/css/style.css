@@ -1,15 +1,15 @@
 body{
- background-color: #343a40;
+    background: #727273;
+ font-family: 'Titillium Web', sans-serif;
  
 }
 
 h5{
     color:#ffc300 ;
 }
+.title{
+    color:#ffc300 ;
+}
 
-.cardCSS {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
-  }
+
+  

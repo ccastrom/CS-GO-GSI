@@ -1,3 +1,5 @@
+
+
 var icons = {
     c75za: "http://vignette3.wikia.nocookie.net/cswikia/images/c/cf/C75a_hud_csgo.png/revision/latest/scale-to-width-down/400",
     deagle: "http://vignette2.wikia.nocookie.net/cswikia/images/7/7d/Deagle_hud_go.png/revision/latest/scale-to-width-down/400",
@@ -51,29 +53,31 @@ var icons = {
     knife_tactical: "http://vignette2.wikia.nocookie.net/cswikia/images/5/53/Knife_hustman_hud_outline_csgo.png/revision/latest/scale-to-width-down/400",
     knife_karambit: "http://vignette4.wikia.nocookie.net/cswikia/images/5/57/Knife_karambit_hud_outline_csgo.png/revision/latest/scale-to-width-down/400",
     knife_m9_bayonet: "http://vignette4.wikia.nocookie.net/cswikia/images/d/d3/Csgo_knife_M9_Bayonet.png/revision/latest/scale-to-width-down/400",
-    knife_shadow_dagger: "http://vignette4.wikia.nocookie.net/cswikia/images/f/f1/Knife_push_hud_outline_csgo.png/revision/latest/scale-to-width-down/400"
-
+    knife_shadow_dagger: "http://vignette4.wikia.nocookie.net/cswikia/images/f/f1/Knife_push_hud_outline_csgo.png/revision/latest/scale-to-width-down/400",
+   
+    de_dust2:"https://csgostash.com/img/collections/256x198/the_dust_2_collection.png?id=1a2cddb40f4478ca7275"
 }
 
 var ctx = document.getElementById('myChart');
-var myChart = new Chart(ctx, {
-    type: 'bar',
+var ctx2 = document.getElementById('myChart2');
+
+const myChart2 = new Chart(ctx2, {
+    type: 'line',
     data: {
-        labels: [ 'Kills','Deahts'],
+        labels: ['1','2','3','4','5','6','7','8','9','10'],
         datasets: [{
-            label: 'Kills',
-            
-            data: [0,0],
+            label: '',
+            data: [0],
             backgroundColor: [
-               
-                'rgba(48, 141, 18, 0.8)',
-                'rgba(173, 11, 11, 0.8)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
-               
+                'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
@@ -86,7 +90,78 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                ticks:{
+                    color:"#FFFFFF"
+                },
+                beginAtZero: true,
+                grid: {
+                    color: 'grey',
+                    lineWidth: 1
+                }
+            },
+            x:{
+                ticks:{
+                    color:"#FFFFFF"
+                },
+                grid:{
+                    color:'grey',
+                    lineWidth: 1
+                }
+            }
+        }
+    }
+});
+
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [ 'Kills','Deahts'],
+        scaleFontColor: "#ff0000",
+        datasets: [{
+            borderColor: "#bae755",
+            label: 'Kills',
+            
+            data: [0,0],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            
+            y: {
+                ticks:{
+                    color:"#FFFFFF"
+                },
+                beginAtZero: true,
+                grid: {
+                    color: 'grey',
+                    lineWidth: 1
+                }
+            },
+            x:{
+                ticks:{
+                    color:"#FFFFFF"
+                },
+                grid:{
+                    color:'grey',
+                    lineWidth: 1
+                }
             }
         }
     }
@@ -98,6 +173,9 @@ var io = io();
       var arma1;
       arma1=status.Armas.ArmaEquipada;
       armaFormateada=arma1.replace("weapon_","");
+      var mapName=status.Mapa.NombreDeMapa;
+     
+  
       
       document.getElementById("UserName").innerHTML=status.Usuario.Nombre;
       document.getElementById("gun_img").src=icons[armaFormateada];
@@ -107,8 +185,10 @@ var io = io();
       
 
       document.getElementById("tipoPartida").innerHTML="Tipo de partida: "+status.Mapa.TipoDePartida;
-      document.getElementById("nombreMapa").innerHTML=status.Mapa.NombreDeMapa;
+      document.getElementById("imagenMapa").src=icons[mapName];
+      document.getElementById("nombreMapa").innerHTML=mapName
       document.getElementById("RondaActual").innerHTML="Ronda actual: "+status.Mapa.RondaActual;
+      document.getElementById("fase").innerHTML="Fase: "+status.Mapa.FaseActual;
 
       document.getElementById("puntosCT").innerHTML="Puntuación CT:" +status.Mapa.PuntuacionCT;
       document.getElementById("puntosT").innerHTML="Puntuación T:"+status.Mapa.PuntuacionT;
@@ -116,12 +196,30 @@ var io = io();
 
     io.on("update", function(status) {
         var kills= status.StatsPlayer.kills;
+        var money=status.Estado.money;
+        let rondaActual=status.Mapa.RondaActual;
+        let rondaActual2=rondaActual.toString();
+     
+
+       
+        
+
+       
         var deaths=status.StatsPlayer.deaths;
             myChart.data.datasets[0].data[0] = kills
             myChart.data.datasets[0].data[1] = deaths
-
+            myChart2.data.datasets[0].data[0]=money;
+           
+            
+           
       
             myChart.update();
+            myChart2.update();
+
+            
+           
+          
+            
     
     
     });

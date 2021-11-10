@@ -50,6 +50,9 @@ app.get('/hud', (req, res) => {
   app.get('/', (req, res) => {
     res.render("index.ejs");
    });
+   app.get('/profile', (req, res) => {
+    res.render("profile.ejs");
+   });
 
 
 app.get('/chart.js', function(req, res) {
