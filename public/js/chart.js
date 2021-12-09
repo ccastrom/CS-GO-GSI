@@ -61,56 +61,10 @@ var icons = {
 var ctx = document.getElementById('myChart');
 var ctx2 = document.getElementById('myChart2');
 
-const myChart2 = new Chart(ctx2, {
-    type: 'line',
-    data: {
-        labels: ['1','2','3','4','5','6','7','8','9','10'],
-        datasets: [{
-            label: '',
-            data: [0],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                ticks:{
-                    color:"#FFFFFF"
-                },
-                beginAtZero: true,
-                grid: {
-                    color: 'grey',
-                    lineWidth: 1
-                }
-            },
-            x:{
-                ticks:{
-                    color:"#FFFFFF"
-                },
-                grid:{
-                    color:'grey',
-                    lineWidth: 1
-                }
-            }
-        }
-    }
-});
+
+console.log(plantedValue);
+
+
 
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -142,6 +96,14 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'white'
+                }
+            }
+        },
         scales: {
             
             y: {
@@ -166,6 +128,105 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+var plantedValue=document.getElementById('totalPlanted').value;
+var defusedValue=document.getElementById('totalDefused').value;
+
+var myChart2 = new Chart(ctx2, {
+  
+    type: 'doughnut',
+  data: {
+    labels: ['Planted', 'Defused'],
+    datasets: [{
+      label: '',
+      data: [defusedValue, plantedValue],
+      
+      backgroundColor: [
+       
+        'rgba(54, 162, 235, 0.7)',
+        'rgba(255, 206, 86, 0.7)',
+        
+      ],
+      borderColor: [
+       
+        'rgba(54, 162, 235, 2)',
+        'rgba(255, 206, 86, 2)',
+        
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+   	//cutoutPercentage: 40,
+    responsive: false,
+    plugins: {
+        legend: {
+            display: true,
+            labels: {
+                color: 'white'
+            }
+        }
+    }
+    
+  
+  }
+});
+
+// const myChart2 = new Chart(ctx2, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ['1','2','3','4','5','6','7','8','9','10'],
+//         datasets: [{
+//             label: '',
+//             data: [0],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 ticks:{
+//                     color:"#FFFFFF"
+//                 },
+//                 beginAtZero: true,
+//                 grid: {
+//                     color: 'grey',
+//                     lineWidth: 1
+//                 }
+//             },
+//             x:{
+//                 ticks:{
+//                     color:"#FFFFFF"
+//                 },
+//                 grid:{
+//                     color:'grey',
+//                     lineWidth: 1
+//                 }
+//             }
+//         }
+//     }
+// });
+
+
+
+
 
 var io = io();
     io.on("update", function(status) {

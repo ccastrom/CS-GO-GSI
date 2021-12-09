@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ 
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Principal Page</title>
 </head>
-<body>
-    <h1>INDEX</h1>
+<body class="bg-cold ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-nav shadow p-2">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="/">
+                RT:STATS
+              <img src="trending_up.svg" alt="">
+        
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white nav-size-text   " aria-current="page" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white nav-size-text  " href="#" >Tabla de posiciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-white nav-size-text   " aria-current="page" href="aboutUs">Sobre nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white nav-size-text   " href="#">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white nav-size-text   " href="#">Ingresar via Steam</a>
+              </li>
+            
+            
+            </ul>
+         
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid element ">
+         
+          <div class="row">
+            
+              <div class="col-6 d-flex justify-content-center   ms-4  " style="margin-top: 9rem; margin-bottom: 17.2rem;  "   > <!--13-6rem-->
+                
+                 <section class="text-white  " >
+                    <h1 class="fw-normal">Stop playing for win</h1>
+                    <h1 class="fw-normal">Start playing for learning</h1>
+                    <h5 class="pt-2 fw-light">RT: Stats es una herramienta que ofrece datos en tiempo real de partidas competitivas en curso, ofreciendo métricas para garantizar una toma de decisiones que impacte en cada partida.</h5>
+                    <div class="col-9   border-primary" style="margin-top:2rem ;">
+                        <div class=" bg-transparent  ">
+                            <div class="card-body">
+                             <img src="Chart.svg" alt="">
+                            </div>
+                          </div>
+                    </div>
+                 </section>
+                
+                  
+
+              </div>
+              <div class="col-5 ellipse1 ellipse  d-flex justify-content-center ms-5   " style="margin-top: 9rem; height: 37.313rem; "   >
+                
+                <div class="card   px-1 py-2 bg-primary bg-form">
+                    <div class="card-body  px-5 mt-3 mb-3" style="width: 27.938rem;">
+                        <h6 class="card-title mb-4 pt-1 h3 text-white fw-normal">Set your ID64</h6>
+                        
+                       
+                        <form action="/" method="post">
+                          
+                            <input class="mb-3  " type="text" name="id64" id="id64"><br>
+                            <a href="https://steamid.io/" target="_blank" class="text-white ">¿No sabes tu ID64?,haz click aquí</a>
+                            <div class="col-12 d-flex justify-content-center" style="margin-top: 13rem;">
+                                <input class=" btn-hover color-5 btn-form px-5 mt-4 mb-2 h4 fw-normal " type="submit" name="btnEnviar" id="btnEnviar" value="Ver Perfil">
+                            </form>
+                            </div>
+                    </div>
+                </div>
+                
+             </div>
+             <footer class="bg-footer shadow-lg text-center text-lg-start">
+                <!-- Copyright -->
+                <div class="text-center p-3 text-white" >
+                  © 2021 Copyright:
+                 RT:STATS
+                </div>
+                <!-- Copyright -->
+              </footer>
+             
+         
+            
+          </div>
+          
+      </div>
 </body>
 </html>

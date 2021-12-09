@@ -61,7 +61,7 @@ function jsonPersonal(idReal,vPlayer_id,vMap,vRound,vWeapons,vPlayer_state,vPlay
 
     }
   
-    console.log(cadenaJSON);
+    //console.log(cadenaJSON);
     return cadenaJSON;
 }
 module.exports.jsonPersonal=jsonPersonal;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,67 +12,79 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>HUD</title>
 </head>
-<body >
+<body class="" style="  background: linear-gradient(20deg, #284C57 55%, #7BA5B1 160%);" >
    
     <div class=" container-fluid" >
         <div class="row " >
-            <div class=" title col-12 d-flex justify-content-center">
+           
+            <div class="  col-4 d-flex justify-content-center" >
+                <a href="/" class="btn-hover color-5" style="text-decoration: none; color:white;">Volver</a>
+              
+               
+            </div>
+            <div class="  col-4 d-flex justify-content-center" >
                 <img class="rounded mt-3" width="90px" height="70px"  id="imagenMapa"></img>
-                <h2 class="pt-2 mt-3 d-flex justify-content-center" id="nombreMapa"></h2>
-                
+                <h2 class="pt-2 mt-3 d-flex justify-content-center hud-title" id="nombreMapa"></h2>
+              
+               
+            </div>
+            <div class="  col-4 d-flex justify-content-center" >
+                <h1 class="mt-4 text-white" style=" font-style: italic;">RT:STATS</h1>
+                <img src="trending_up.svg" alt="">
+              
                
             </div>
         </div>
-        <div class=" shadow-lg card col-md-10 mt-4 mb-3 mx-auto "  style="background-color: #495057; ">
+        <div class=" shadow-lg card col-md-10 mt-4 mb-3 mx-auto "  style="background-color: #314d53; ">
             <div class="row col-md-11 mt-5 mx-auto " >
-                <div class="col-2 border border-3  border-secondary rounded" >
-                    <h5 class="pt-2 d-flex justify-content-center"  id="tipoPartida">Tipo de Partida</h5>
+                <div class="col-2 border-hud   rounded" >
+                    <h5 class=" hud-title pt-2 d-flex justify-content-center"  id="tipoPartida">Tipo de Partida</h5>
                 </div>
-                <div class="col-10 border border-3  border-secondary rounded" >
-                 <h5 class="pt-2 "  id="UserName">Nombre</h5>
+                <div class="col-10 border-hud rounded" >
+                 <h5 class=" hud-title pt-2 "  id="UserName">Nombre</h5>
              </div>
              </div>
              <div class="row  col-md-11  mx-auto " >
-                 <div class="col-6 border border-3  border-secondary rounded" >
+                 <div class="col-6 border-hud rounded" >
                      <div class="col-1 mt-5 mx-auto">
                         <img src="https://i.imgur.com/KD6CB5b.png" width="80px" height="80px"><img>
                      </div>
-                     <h5 class=" d-flex justify-content-center rounded" id="puntosCT">Puntuación CT:1</h5>
+                     <h5 class=" hud-title d-flex justify-content-center rounded" id="puntosCT">Puntuación CT:1</h5>
                  </div>
-                 <div class="col-6 border border-3  border-secondary rounded" >
+                 <div class="col-6 border-hud rounded" >
                     <div class="col-1 mt-5 mx-auto">
                         <img src="https://steamuserimages-a.akamaihd.net/ugc/858353301730910634/8F630A0B1E5E2026D347894A877E1386D148F478/" width="80px" height="80px"><img>
                      </div>
-                  <h5 class=" d-flex justify-content-center" id="puntosT">Puntuación T:0</h5>
+                  <h5 class=" hud-title d-flex justify-content-center" id="puntosT">Puntuación T:0</h5>
               </div>
               </div>
               <div class="row  col-md-11  mx-auto  " >
-                 <div class="col-12 border border-3  border-secondary rounded" >
-                     <h5 class="pt-2 mb-4 d-flex justify-content-center" id="RondaActual">Ronda Actual</h5>
+                 <div class="col-12 border-hud rounded" >
+                     <h5 class=" hud-title pt-2 mb-4 d-flex justify-content-center" id="RondaActual">Ronda Actual</h5>
                      <div class="col-2 mx-auto" >
-                         <h5 class=" d-flex justify-content-center border border-3  border-secondary" id="fase">Fase actual:</h5>
+                         <h5 class="hud-title d-flex justify-content-center border-hud" id="fase">Fase actual:</h5>
                          
                      </div>
                  </div>  
               </div>
      
               <div class="row pt-4  col-md-11  mx-auto  ">
-                 <div class="col-12 border border-3  border-secondary rounded">
+                 <div class="col-12 border-hud rounded">
   
-                     <h5 class="pt-2 d-flex justify-content-center " id="arma1">Arma 1</h5>
+                     <h5 class=" hud-title pt-2 d-flex justify-content-center " id="arma1">Arma 1</h5>
                      <img class="rounded mx-auto d-block" id="gun_img" width="130px" height="48px"></img>
                      <div class="col-2 mx-auto "  >
-                        <h5 class=" d-flex justify-content-center border border-3  border-secondary rounded" id="ammo">Ammo</h5>
+                        <h5 class="hud-title d-flex justify-content-center border-hud rounded" id="ammo">Ammo</h5>
                         
                     </div>
                  </div>
                 
               </div>
-              <div class="row col-md-11 mb-4  mx-auto border border-3  border-secondary rounded  ">
+              <div class="row col-md-11 mb-4  mx-auto border-hud rounded  ">
                  <div class="col-12 " >
-                     <h5 class="pt-2 d-flex justify-content-center ">-</h5>
+                     <h5 class="hud-title pt-2 d-flex justify-content-center ">-</h5>
                  </div>
                 
               </div>
@@ -79,18 +92,24 @@
         </div>
 
        
-        <div class=" shadow-lg card col-md-11 mx-auto  " style="background-color: #495057;">
-            <div class="row pt-3  col-md-11  mx-auto pb-4  " >
+        <div class=" shadow-lg card col-md-11 mx-auto  " style="background-color: #314d53;">
+            <div class="row pt-2  col-md-11  mx-auto pb-4  " >
+                <div class=" col-md-4  d-flex justify-content-center  ">
+                    <h1></h1>
+                  </div> 
                 <div class=" col-md-4 d-flex  justify-content-center   ">
                     <canvas id="myChart" style="height: 100px; width: 190px;"></canvas>
                  
                 </div>
-                <div class=" col-md-4 d-flex justify-content-center   ">
+                <div class=" col-md-4  d-flex justify-content-center  ">
+                    <h1></h1>
+                  </div> 
+                <!-- <div class=" col-md-4 d-flex justify-content-center   ">
                     <canvas id="myChart2" style="height: 100px; width: 190px;"></canvas>
                   </div> 
                   <div class=" col-md-4  d-flex justify-content-center  ">
                     <h1>adsa</h1>
-                  </div>  
+                  </div>   -->
                   </div>
 
 
@@ -102,7 +121,7 @@
         
         
     
-    <script type="text/javascript" src="weapons_ico.js"></script>  
+
     <script type="text/javascript" src="chart.js"></script>
    
 </body>
